@@ -46,6 +46,13 @@ def calculate_formula2(x, terms=20):
     """
     return cos_series(x, terms)
 
+# Функция для вычисления экспоненты (формула 3)
+def calculate_formula3(x, terms=20):
+    r"""
+    Вычисление экспоненты через сумму ряда.
+    e^x = \sum_{n=0}^{\infty} (x^n / n!)
+    """
+    return exp_series(x, terms)
 
 def main_menu():
     """
@@ -55,7 +62,8 @@ def main_menu():
         print("\nМеню:")
         print("1. Вычислить формулу 1")
         print("2. Вычислить формулу 2")
-        print("3. Выход")
+        print("3. Вычислить формулу 3")
+        print("4. Выход")
 
         choice = input("Выберите действие: ")
         if choice == "1":
@@ -71,6 +79,9 @@ def main_menu():
             except ValueError as e:
                 print(f"Ошибка: {e}")
         elif choice == "3":
+            x = float(input("Введите значение x:"))
+            print(f"Результат: {calculate_formula3(x)}")
+        elif choice == "4":
             print("Выход из программы.")
             break
         else:
